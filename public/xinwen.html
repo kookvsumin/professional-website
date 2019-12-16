@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="../static/css/style.css" type="text/CSS" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .zhongxin {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<br>
+<div class="nav">
+    <img src="https://icec.nefu.edu.cn/images/lolo.png">
+    <div class="content">
+        <a href="index.html">回到首页</a>
+    </div>
+</div>
+<br>
+<hr />
+<div class="all">
+    <a href="xinwen.html" class="zhongxin">新闻中心</a>
+    <br><br><br>
+    <div class="juti">
+        <a href="zhangjunwei.html" id="xinwen"></a><br><br>
+        <a href="shoujin.html" id="qinghua"></a><br>
+        <a href="qinghua.html" id="icpc"></a><br><br>
+    </div>
+</div>
+<script>
+  $.ajax({
+           type:'get',
+           url:'/getnews',
+           success:function(e)
+           {
+               console.log(e);
+               $("#xinwen").html(`${e[0].newsname+' '+e[0].time.slice(0,10)}`);
+              
+               $("#icpc").html(`${e[1].newsname+' '+e[1].time.slice(0,10)}`);
+           
+               $("#qinghua").html(`${e[2].newsname+' '+e[2].time.slice(0,10)}`);
+              
+           },
+           error:function(e)
+           {
+
+           }
+
+        })
+
+</script>
+</body>
+</html>

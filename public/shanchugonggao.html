@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/css/style.css" type="text/CSS" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <title>web</title>
+    <style>
+        button {
+            background-color: red;
+            border-radius: 50px;
+            border-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<br>
+<div class="nav">
+    <img src="https://icec.nefu.edu.cn/images/lolo.png">
+</div>
+<br>
+<hr />
+<div class="all">
+    <div class="ce">
+        <br><br>
+        <div>
+            <h3>公告栏</h3>
+            <ul>
+                <li><a href="gonggaoliebiao.html">公告列表</a></li>
+                <li><a href="tianjiagonggao.html">添加公告</a></li>
+                <li><a href="shanchugonggao.html" class="yixuan">删除公告</a></li>
+                <li><a href="bianjigonggao.html">编辑公告</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>新闻中心</h3>
+            <ul>
+                <li><a href="xinwenliebiao.html">新闻列表</a></li>
+                <li><a href="tianjiaxinwen.html">添加新闻</a></li>
+                <li><a href="shanchuxinwen.html">删除新闻</a></li>
+                <li><a href="bianjixinwen.html">编辑新闻</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="zhong">
+        <table >
+            <tr id="title">
+                <th >标题</th>
+                <th>内容</th>
+                <th>删除</th>
+            </tr>
+<!--            <tr>-->
+<!--                <td></td>-->
+<!--                <td></td>-->
+<!--                <td><button>x</button></td>-->
+<!--            </tr>-->
+
+        </table>
+    </div>
+</div>
+<script>
+    // console.log(document.getElementById("title"))
+    $.ajax({
+        type:'GET',
+        url:'/getnotice',
+        success:function (e) {
+            var data=e;
+            data=Array.from(data);
+            console.log(data);
+            console.log($('#title'))
+            data.map((item,index)=>{
+                $('#title').after(`
+                <tr>
+                <td> ${item.gonggao}</td>
+                <td>${item.neirong}</td>
+                 <td><button data-key=${item.gonggao} id="dianji">x</button></td>
+            </tr>
+              `)
+            })
+            $("#dianji").click(function (e) {
+                console.log($(e.target).attr('data-key'))
+                var gonggao=$(e.target).attr('data-key');
+                $.ajax({
+                    type: "POST",
+                    url: '/deletenotice',
+                    data:{
+                        gonggao
+                    },
+                    success:function () {
+                        alert("删除成功");
+                        window.location.href="gonggaoliebiao.html"
+                    },
+                    error:function () {
+                        alert("删除失败");
+                    }
+                })
+            })
+        },
+        error:function () {
+            console.log("失败")
+        }
+    })
+
+</script>
+</body>
+</html>
+

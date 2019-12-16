@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>web</title>
+    <meta name="description" content="Simple Effects for Drop-Down Lists"/>
+    <meta name="keywords" content="drop-down, select, jquery, plugin, fallback, transition, transform, 3d, css3"/>
+    <meta name="author" content="Codrops"/>
+    <link rel="shortcut icon" href="../favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/style2.css"/>
+    <script src="../static/js/modernizr.custom.63321.js"></script>
+    <link rel="stylesheet" href="../static/css/index.css"/>
+    <script src="./javascripts/jquery.min.js"></script>
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+    />
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"
+            integrity="sha384-L2pyEeut/H3mtgCBaUNw7KWzp5n9+4pDQiExs933/5QfaTh8YStYFFkOzSoXjlTb"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"
+    ></script>
+
+    <link href="../static/css/history.css" rel="stylesheet"/>
+
+</head>
+<body>
+<div class="head">
+    <img src="https://icec.nefu.edu.cn/images/lolo.png"/>
+
+    <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModal"
+            data-whatever="@mdo"
+    >
+        登 录
+    </button>
+
+    <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+    >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">欢迎登录！</h5>
+                    <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                    >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label"
+                            >用户名:</label
+                            >
+                            <input type="text" class="form-control" id="recipient-name"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">密码:</label>
+                            <input
+                                    type="password"
+                                    class="form-control"
+                                    id="message-text"
+                            />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                    >
+                        取消
+                    </button>
+                    <button  id="dianji"  type="button" class="btn btn-primary">登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="whole">
+    <div class="nav">
+        <div class="btn-group">
+            <button
+                    type="button"
+                    class="btn btn-secondary dropdown-toggle"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+            >
+                专业介绍
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="zhuanyejianjie.html">专业简介</a>
+                <a class="dropdown-item" href="fangxiangjianjie.html">方向简介</a>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button
+                    type="button"
+                    class="btn btn-secondary dropdown-toggle"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+            >
+                实验室
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="chuangxin.html">923创新实验室</a>
+                <a class="dropdown-item" href="yidong.html">925移动开发实验室</a>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button
+                    type="button"
+                    class="btn btn-secondary dropdown-toggle"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+            >
+                教师队伍
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="jiaoshou.html">教授</a>
+                <a class="dropdown-item" href="fujiaoshou.html">副教授</a>
+                <a class="dropdown-item" href="jiangshi.html">讲师</a>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button
+                    type="button"
+                    class="btn btn-secondary dropdown-toggle"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+            >
+                就业指南
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="baidu.html">怎么进百度</a>
+                <a class="dropdown-item" href="ali.html">怎么进阿里</a>
+                <a class="dropdown-item" href="tengxun.html">怎么进腾讯</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text">
+    <div class="carousel">
+        <div
+                id="carouselExampleFade"
+                class="carousel slide carousel-fade"
+                data-ride="carousel"
+        >
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../static/images/news1.jpg" class="d-block w-100" alt="..."/>
+                </div>
+                <div class="carousel-item">
+                    <img src="../static/images/news2.jpg" class="d-block w-100" alt="..."/>
+                </div>
+                <div class="carousel-item">
+                    <img src="../static/images/news3.jpg" class="d-block w-100" alt="..."/>
+                </div>
+            </div>
+            <a
+                    class="carousel-control-prev"
+                    href="#carouselExampleFade"
+                    role="button"
+                    data-slide="prev"
+            >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a
+                    class="carousel-control-next"
+                    href="#carouselExampleFade"
+                    role="button"
+                    data-slide="next"
+            >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="side">
+        <div class="notice">
+            <br/>
+            <p>公 告 栏</p>
+            <br/>
+            <ul>
+                <li>
+                    &nbsp&nbsp&nbsp
+                    <a href="zhaoxin.html" id="zhaoxin"></a>
+                </li>
+                <li>
+                    &nbsp&nbsp&nbsp
+                    <a href="ares.html" id="ares"></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main">
+            <div class="history">
+                <div class="history-date">
+                    <ul>
+                        <li>
+                            <h3 id="xinwen1"></h3>
+                            <dl>
+                                <dt><a href="xinwen.html" id="xinwen"></a></dt>
+                            </dl>
+                        </li>
+
+                        <li>
+                            <h3 id="icpc1"></h3>
+                            <dl>
+                                <dt><a href="xinwen.html" id="icpc"></a></dt>
+                            </dl>
+                        </li>
+
+                        <li>
+                            <h3 id="qinghua1"></h3>
+                            <dl>
+                                <dt><a href="xinwen.html" id="qinghua"></a></dt>
+                            </dl>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <a href="xinwen.html" class="xinwen">>>更多新闻</a>
+    </div>
+
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/main.js"></script>
+    <script>
+        $.ajax({
+           type:'get',
+           url:'/getnotice',
+           success:function(e)
+           {
+               console.log(e);
+               $("#zhaoxin").html(`${e[0].gonggao}`)
+               $("#ares").html(`${e[1].gonggao}`)
+            //    $("#zhaoxin").val(`${e[0].gonggao}`);
+           },
+           error:function(e)
+           {
+
+           }
+
+        })
+        $.ajax({
+           type:'get',
+           url:'/getnews',
+           success:function(e)
+           {
+               console.log(e);
+               $("#xinwen").html(`${e[0].newsname}`);
+               $("#xinwen1").html(`${e[0].time.slice(4,10)}<span>${e[0].time.slice(0,4)}</span>`)
+               $("#icpc").html(`${e[1].newsname}`);
+               $("#icpc1").html(`${e[1].time.slice(4,10)}<span>${e[1].time.slice(0,4)}</span>`)
+               $("#qinghua").html(`${e[2].newsname}`);
+               $("#qinghua1").html(`${e[2].time.slice(4,10)}<span>${e[2].time.slice(0,4)}</span>`)
+           },
+           error:function(e)
+           {
+
+           }
+
+        })
+
+        $("#dianji").click(function () {
+            //console.log($("#message-text").val())
+            var username,password;
+            username=$("#message-text").val();
+            password=$("#recipient-name").val();
+            $.ajax({
+                type:'POST',
+                url:'/login',
+                data:{
+                    username,
+                    password
+                },
+                success:function (e) {
+                    window.location.href="gonggaoliebiao.html"
+                },
+                error:function () {
+                    console.log("失败")
+                }
+            })
+        })
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>web</title>
+    <script src="./javascripts/jquery.min.js"></script>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js" integrity="sha384-L2pyEeut/H3mtgCBaUNw7KWzp5n9+4pDQiExs933/5QfaTh8YStYFFkOzSoXjlTb" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link href="../static/css/bianji.css" type="text/CSS" rel="stylesheet" />
+    <link href="../static/css/style.css" type="text/CSS" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        form {
+            height: 300px;
+        }
+
+        .form-group textarea {
+            height: 165px;
+        }
+
+        .all .ce h3 {
+            font-size: 16px;
+            height: 2px;
+        }
+
+        .zhong .btn {
+            padding: 2px;
+            margin: 2px;
+        }
+
+        ul li {
+            height: 20px;
+        }
+
+        .ce ul {
+            margin: 16px 0;
+        }
+    </style>
+</head>
+<body>
+<br>
+<div class="nav">
+    <img src="https://icec.nefu.edu.cn/images/lolo.png">
+</div>
+<br>
+<hr />
+<div class="all">
+    <div class="ce">
+        <br><br>
+        <div>
+            <h3>公告栏</h3>
+            <ul>
+                <li><a href="gonggaoliebiao.html">公告列表</a></li>
+                <li><a href="tianjiagonggao.html">添加公告</a></li>
+                <li><a href="shanchugonggao.html">删除公告</a></li>
+                <li><a href="bianjigonggao.html" class="yixuan">编辑公告</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>新闻中心</h3>
+            <ul>
+                <li><a href="xinwenliebiao.html">新闻列表</a></li>
+                <li><a href="tianjiaxinwen.html">添加新闻</a></li>
+                <li><a href="shanchuxinwen.html">删除新闻</a></li>
+                <li><a href="bianjixinwen.html">编辑新闻</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="zhong">
+        <table>
+            <tr id="title">
+                <th>标题</th>
+                <th>内容</th>
+                <th>编辑</th>
+            </tr>
+<!--            <tr>-->
+<!--                <td></td>-->
+<!--                <td></td>-->
+<!--                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">编辑</button>-->
+<!--                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                        <div class="modal-dialog" role="document">-->
+<!--                            <div class="modal-content">-->
+<!--                                <div class="modal-header">-->
+<!--                                    <h5 style="color: black" class="modal-title" id="exampleModalLabel">编辑公告</h5>-->
+<!--                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                                        <span aria-hidden="true">&times;</span>-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                                <div class="modal-body">-->
+<!--                                    <form>-->
+<!--                                        <div class="form-group">-->
+<!--                                            <label for="recipient-name" style="color: black" class="col-form-label">标题</label>-->
+<!--                                            <input type="text" class="form-control" id="recipient-name">-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group">-->
+<!--                                            <label style="color: black" for="message-text" class="col-form-label">内容</label>-->
+<!--                                            <textarea class="form-control" id="message-text"></textarea>-->
+<!--                                        </div>-->
+<!--                                    </form>-->
+<!--                                </div>-->
+<!--                                <div class="modal-footer">-->
+<!--                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>-->
+<!--                                    <button type="button" class="btn btn-primary">确定</button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td></td>-->
+<!--                <td></td>-->
+<!--                <td></td>-->
+<!--            </tr>-->
+        </table>
+    </div>
+</div>'
+<script>
+    $.ajax({
+        type:'GET',
+        url:'/getnotice',
+        success:function (e) {
+            var data=e;
+            data=Array.from(data);
+            console.log(data);
+            console.log($('#title'))
+            data.map((item,index)=>{
+                $('#title').after(`
+                 <tr>
+                <td>${item.gonggao}</td>
+                <td>${item.neirong}</td>
+                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">编辑</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 style="color: black" class="modal-title" id="exampleModalLabel">编辑公告</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="recipient-name" style="color: black" class="col-form-label">标题</label>
+                                            <input type="text" class="form-control" id="recipient-name" value=${item.gonggao}>
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="color: black" for="message-text" class="col-form-label">内容</label>
+                                            <textarea class="form-control" id="message-text">${item.neirong}</textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary" data-key=${item.gonggao}  id="dianji">确定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+              `)
+            })
+            $("#dianji").click(function (e) {
+                console.log($(e.target).attr('data-key'));
+                console.log($("#message-text").val())
+                var gonggao=$(e.target).attr('data-key');
+                var neirong=$("#message-text").val();
+                $.ajax({
+                    type: "POST",
+                    url: '/updatenotice',
+                    data:{
+                        gonggao,
+                        neirong
+                    },
+                    success:function () {
+                        alert("修改成功");
+                        window.location.href="gonggaoliebiao.html"
+                    },
+                    error:function () {
+                        alert("删除失败");
+                    }
+                })
+            })
+        },
+        error:function () {
+            console.log("失败")
+        }
+    })
+
+</script>
+</body>
+</html>
+

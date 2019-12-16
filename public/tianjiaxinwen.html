@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/css/style.css" type="text/CSS" rel="stylesheet" />
+    <title>web</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        textarea {
+            width: 230px;
+            height: 150px;
+            font-size: 18px;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        textarea:focus{
+            outline: none;
+            border-style: solid;
+            border-color: dodgerblue;
+        }
+        input[type=text] {
+            font-size: 18px;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        input[type=reset],input[type=submit] {
+            font-size: 16px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<br>
+<div class="nav">
+    <img src="https://icec.nefu.edu.cn/images/lolo.png">
+</div>
+<br>
+<hr />
+<div class="all">
+    <div class="ce">
+        <br><br>
+        <div>
+            <h3>公告栏</h3>
+            <ul>
+                <li><a href="gonggaoliebiao.html">公告列表</a></li>
+                <li><a href="tianjiagonggao.html">添加公告</a></li>
+                <li><a href="shanchugonggao.html">删除公告</a></li>
+                <li><a href="bianjigonggao.html">编辑公告</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>新闻中心</h3>
+            <ul>
+                <li><a href="xinwenliebiao.html">新闻列表</a></li>
+                <li><a href="tianjiaxinwen.html" class="yixuan">添加新闻</a></li>
+                <li><a href="shanchuxinwen.html">删除新闻</a></li>
+                <li><a href="bianjixinwen.html">编辑新闻</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="zhong">
+        <form action="" method="post">
+            <br><br>
+            标 题：<input type="text" autofocus required id="newsname"><br><br>
+            时 间：<input type="text" id="time"><br><br>
+            内 容：<textarea type="text" id="neirong"></textarea><br><br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="submit" id="dianji">
+        </form>
+
+    </div>
+</div>
+<script>
+    $("#dianji").click(function (e) {
+
+        e.preventDefault();
+        var newsname=$("#newsname").val();
+        var time=$("#time").val();
+        var neirong=$("#neirong").val();
+        $.ajax({
+            type:'POST',
+            url:'/addnews',
+            data:{
+                newsname,
+                time,
+                neirong
+            },
+            success:function (e) {
+                alert('添加成功');
+                window.location.href="xinwenliebiao.html"
+            },
+            error:function () {
+                console.log("失败")
+            }
+        })
+    })
+
+
+
+
+</script>
+</body>
+</html>
+

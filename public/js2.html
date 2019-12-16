@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="../static/css/style.css" type="text/CSS" rel="stylesheet" />
+    <style>
+
+        .container {
+            display: flex;
+        }
+        .card {
+            width: 600px;
+            height: 350px;
+            margin: 15px 15px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        /* 随外层容器缩放 */
+        .card .tutu img {
+            width: 30%;
+            height: 20%;
+            border-radius: 50%;
+            opacity: 1.0;
+        }
+        /* 两端对齐 */
+        .card .content {
+            text-align: justify;
+        }
+        .card a {
+            display: inline-block;
+            margin: 27px auto 0 37px;
+            padding: 10px 15px;
+            background: cornflowerblue;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .card .content p{
+            opacity: 1.0;
+            height: 100px;
+        }
+        .content a:hover {
+            background: dodgerblue;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            background-image: url("../static/images/sky.jpg");
+        }
+        .card p{
+            color: white;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<br>
+<div class="nav">
+    <img src="https://icec.nefu.edu.cn/images/lolo.png">
+    <div class="content">
+        <a href="index.html">回到首页</a>
+    </div>
+</div>
+<br>
+<hr />
+<div class="all">
+    <div class="ce">
+        <br><br>
+        <div>
+            <h3>专业介绍</h3>
+            <ul>
+                <li><a href="zhuanyejianjie.html">专业简介</a></li>
+                <li><a href="fangxiangjianjie.html">方向简介</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>实验室</h3>
+            <ul>
+                <li><a href="chuangxin.html">923创新实验室</a></li>
+                <li><a href="yidong.html">925移动开发实验室</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>教师队伍</h3>
+            <ul>
+                <li><a href="jiaoshou.html">教授</a></li>
+                <li><a href="fujiaoshou.html" class="yixuan">副教授</a></li>
+                <li><a href="jiangshi.html">讲师</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>就业指南</h3>
+            <ul>
+                <li><a href="baidu.html">怎么进百度</a></li>
+                <li><a href="ali.html">怎么进阿里</a></li>
+                <li><a href="tengxun.html">怎么进腾讯</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="zhong">
+        <div class="container">
+            <div class="card">
+                <div class="tutu">
+                    <img src="https://i.pravatar.cc/250?img=2" alt="face">
+                </div>
+                <div class="content">
+                    <p>第二个副教授的详细介绍第二个副教授的详细介绍第二个副教授的详细介绍第二个副教授的详细介绍第二个副教授的详细介绍第二个副教授的详细介绍第二个副教授的详细介绍第二个副教授的详细介绍</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

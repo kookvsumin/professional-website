@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="../static/css/style.css" type="text/CSS" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .zhongxin {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .time {
+            margin: 2px 2px 2px auto;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<br>
+<div class="nav">
+    <img src="https://icec.nefu.edu.cn/images/lolo.png">
+    <div class="content">
+        <a href="index.html">回到首页</a>
+    </div>
+</div>
+<br>
+<hr />
+<div class="all">
+    <a href="xinwen.html" class="zhongxin">新闻中心</a>&nbsp;>&nbsp;内容
+    <br><br>
+    <h2 id="zhangjunwei"></h2>
+    <br>
+    <div id="inner"></div>
+    
+    <br><br><br><br>
+    <div class="time"></div>
+</div>
+<script>
+   $.ajax({
+           type:'get',
+           url:'/getnews',
+           success:function(e)
+           {
+               console.log(e);
+               $("#inner").html(`${e[0].neirong}`);
+              
+               $("#zhangjunwei").html(`${e[0].newsname}`);
+               $(".time").html(`${e[0].time.slice(0,10)}`)
+            //    $("#qinghua").html(`${e[2].newsname+' '+e[2].time.slice(0,10)}`);
+              
+           },
+           error:function(e)
+           {
+
+           }
+
+        })
+
+</script>
+</body>
+</html>

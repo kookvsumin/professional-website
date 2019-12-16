@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/sky.jpg");
+    color: whitesmoke;
+}
+
+.nav {
+    display: flex;
+    width: 100%;
+}
+.nav .content {
+    margin: 0 40px 0 auto;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 10px 15px;
+    background: cornflowerblue;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.all {
+    margin: 10px 100px;
+}
+img{
+    height: 50px;
+}
+.ce{
+    display: inline-block;
+    width: 250px;
+    float: left;
+}
+.zhong{
+    display: flex;
+    width: 70%;
+    flex-wrap: wrap;
+}
+h3{
+    font-size: 15px;
+    height: 2px;
+}
+li{
+    list-style: none;
+    font-size: 15px;
+}
+a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+a:hover{
+    background-color: cornflowerblue;
+}
+.yixuan{
+    background-color: dodgerblue;
+}
+table{
+    border-collapse: collapse;
+    width: 900px;
+    text-align: center;
+    margin: 0px auto;
+}
+th{
+    background-color: cornflowerblue;
+    height: 50px;
+}
+td{
+    height: 30px;
+}
+table,th,td{
+    border: 1px solid dodgerblue;
+}
+form{
+    text-align: center;
+    height: 10px;
+}
+input:focus{
+    outline: none;
+    border-style: solid;
+    border-color: dodgerblue;
+}
+fieldset{
+    width: 300px;
+    margin: 0px auto;
+}
+legend{
+    text-align: left;
+    font-size: 20px;
+}
+.qiandao{
+    width: 400px;
+}
